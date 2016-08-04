@@ -46,6 +46,17 @@ local car = {
 	removed = false
 }
 
+local function DetachPlayer(self, clicker, is_driver)
+	local pname = clicker:get_player_name()
+	clicker:set_detach()
+	default.player_attached[pname] = false
+	default.player_set_animation(clicker, "stand" , 30)
+	if not is_driver then
+		clicker:set_eye_offset({x=0, y=0, z=0}, {x=0, y=0, z=0})
+	end
+	return nil
+end
+
 function car.on_rightclick(self, clicker)
 	if not clicker or not clicker:is_player() then
 		return
@@ -64,7 +75,7 @@ function car.on_rightclick(self, clicker)
 	elseif not self.driver then
 		self.driver = clicker
 		clicker:set_attach(self.object, "",
-			{x = -3, y = 12, z = -1}, {x = 0, y = 0, z = 0})
+			{x = -3, y = 7, z = -1}, {x = 0, y = 0, z = 0})
 		default.player_attached[name] = true
 		minetest.after(0.2, function()
 			default.player_set_animation(clicker, "sit" , 30)

@@ -64,7 +64,7 @@ function bike.on_rightclick(self, clicker)
 	elseif not self.driver then
 		self.driver = clicker
 		clicker:set_attach(self.object, "",
-			{x = 0, y = 11, z = 1}, {x = 0, y = 0, z = 0})
+			{x = 0, y = 6, z = 1}, {x = 0, y = 0, z = 0})
 		default.player_attached[name] = true
 		minetest.after(0.2, function()
 			default.player_set_animation(clicker, "stand" , 30)

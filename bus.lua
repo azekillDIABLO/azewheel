@@ -64,7 +64,7 @@ function bus.on_rightclick(self, clicker)
 	elseif not self.driver then
 		self.driver = clicker
 		clicker:set_attach(self.object, "",
-			{x = 5, y = 13, z = 8}, {x = 0, y = 0, z = 0})
+			{x = 5, y = 7, z = 8}, {x = 0, y = 0, z = 0})
 		default.player_attached[name] = true
 		minetest.after(0.2, function()
 			default.player_set_animation(clicker, "sit" , 30)
